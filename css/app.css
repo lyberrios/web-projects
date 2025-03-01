@@ -354,6 +354,7 @@ img {
 }
 
 /** Blog */
+
 @media (min-width: 768px) { 
     .contenedor-blog {
         display: grid;
@@ -440,6 +441,9 @@ img {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
+
+
+
 @media (min-width: 768px) { 
     .galeria {
         grid-template-columns: repeat(3, 1fr);
@@ -449,4 +453,60 @@ img {
     height: 40rem;
     width: 40rem;
     object-fit: cover;
+}
+
+/* efectos de scroll*/
+/* Animaciones generales */
+.staggered, .fade-left, .fade-up {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* fade-up empieza desplazado hacia abajo */
+.fade-up {
+    transform: translateY(50px);
+}
+
+/* fade-left empieza desplazado a la izquierda */
+.fade-left {
+    transform: translateX(-50px);
+}
+
+/* staggered empieza desplazado hacia abajo */
+.staggered {
+    transform: translateY(30px);
+}
+
+/* Cuando se hacen visibles */
+.staggered.visible, 
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Staggered delays para un efecto de cascada */
+.staggered.visible:nth-child(1) { transition-delay: 0.1s; }
+.staggered.visible:nth-child(2) { transition-delay: 0.2s; }
+.staggered.visible:nth-child(3) { transition-delay: 0.3s; }
+.staggered.visible:nth-child(4) { transition-delay: 0.4s; }
+.staggered.visible:nth-child(5) { transition-delay: 0.5s; }
+.staggered.visible:nth-child(6) { transition-delay: 0.6s; }
+.staggered.visible:nth-child(7) { transition-delay: 0.7s; }
+.staggered.visible:nth-child(8) { transition-delay: 0.8s; }
+.staggered.visible:nth-child(9) { transition-delay: 0.9s; }
+/* Animación zoom-in */
+.zoom-in {
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.zoom-in.visible {
+    opacity: 1;
+    transform: scale(1);
 }
